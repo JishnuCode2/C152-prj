@@ -1,4 +1,4 @@
-AFRAME.registerComponent("car", {
+  AFRAME.registerComponent("car", {
     schema: {
         src: {type:"string", 
         default: "./models/60s_muscle_car_orange/scene.gltf"
@@ -19,6 +19,9 @@ AFRAME.registerComponent("car", {
     update: function() {
         window.addEventListener("click", e => {
             this.data.clickCounter = this.data.clickCounter + 1;
+            if (this.data.clickCounter >= 18){
+                this.data.clickCounter = 0
+            }
 
             console.log(this.data.clickCounter)
             const rotation = { x: 0, y: 90 + (this.data.clickCounter*20), z: 0 }; 
@@ -26,4 +29,3 @@ AFRAME.registerComponent("car", {
         })
     }
 })
-
